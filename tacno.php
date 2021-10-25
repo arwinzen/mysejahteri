@@ -1,4 +1,3 @@
-<?php require_once "connection.php" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
@@ -44,32 +43,34 @@
     </div>
 
     <?php
+    include_once "connection.php";
     $name = $_POST['user-name'];
     $number = $_POST['mobile-no'];
     echo $name;
     echo $number;
 
-    function checkUser($name, $number, $conn){
+    function checkUser($name, $number, $conn)
+    {
         $sql_check_user = "SELECT * FROM users WHERE user_name = '$name' AND mobile_no = '$number'";
-        $sql_insert_user = ""
+        //        $sql_insert_user = "INSERT INTO users(user_name, user_) VALUES('$_fname','$_lname')";
 
         $result_check = $conn->query($sql_check_user);
 
 
-        if($result_check)
-        {
-            // if user already exists
-            if($count = $result->num_rows){
-                echo "User exists";
-            } else {
-                echo "User doesn't exist";
-
-            }
-        }
+        //        if($result_check)
+        //        {
+        //            // if user already exists
+        //            if($count = $result_check->num_rows){
+        //                echo "User exists";
+        //            } else {
+        //                echo "User doesn't exist";
+        //
+        //            }
+        //        }
 
     }
 
-    checkUser($name, $number, $conn);
+    //    checkUser($name, $number, $conn);
 
     ?>
 
